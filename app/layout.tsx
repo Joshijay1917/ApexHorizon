@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Apex Horizon | Software Development & Business Management Solutions",
     description: "Precision software studio designing subscription-ready products and engineered local integrations.",
-    url: "https://apexhorizon.in",
+    url: "https://apexhorizon.dev",
     siteName: "Apex Horizon",
     images: [
       {

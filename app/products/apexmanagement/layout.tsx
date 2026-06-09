@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Apex Management – Offline Billing, Inventory & WhatsApp Business Software",
     description: "Manage billing, inventory, stock tracking, GST invoices and WhatsApp notifications from a single offline-first business management platform.",
-    url: "https://apexhorizon.in/products/ApexManagement",
+    url: "https://apexhorizon.dev/products/apexmanagement",
     siteName: "Apex Horizon",
     images: [
       {
