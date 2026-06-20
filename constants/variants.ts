@@ -13,7 +13,7 @@ export const leftPanelVariants = {
       x: 0, 
       rotateY: 8, 
       scale: 1,
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } 
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const } 
     }
   };
 
@@ -24,7 +24,7 @@ export const rightPanelVariants = {
       x: 0, 
       rotateY: 0, // Set to 0 initially, hand over control to custom spring transforms once loaded
       scale: 1,
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } 
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const } 
     }
   };
 
@@ -43,6 +43,6 @@ export const cardVariants = {
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }
     }
   };
