@@ -1,8 +1,12 @@
-import { motion } from "framer-motion";
+import { VerifyEmail } from "@/components/modals/VerifyEmail";
+import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function PricingSection() {
   const router = useRouter()
+  const [isVerifyModalOpen, setIsVerifyModalOpen] = useState(false);
+  const [verifyStatus, setVerifyStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const plans = [
     {
       name: "FREE TRIAL",
@@ -64,8 +68,14 @@ export default function PricingSection() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] }
+      transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const }
     }
+  };
+
+  const handleOpenVerifyModal = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsVerifyModalOpen(true);
+    setVerifyStatus('idle');
   };
 
   return (
@@ -168,11 +178,11 @@ export default function PricingSection() {
               {/* Action Buttons Frame */}
               <div className="mt-12">
                 {plan.isPopular ? (
-                  <button className="w-full py-3.5 rounded-xl bg-blue-600 border border-blue-500 hover:bg-blue-500 text-white text-xs font-bold tracking-wider uppercase transition shadow-lg shadow-blue-600/10 active:scale-[0.99]">
+                  <button onClick={handleOpenVerifyModal} className="w-full py-3.5 rounded-xl bg-blue-600 border border-blue-500 hover:bg-blue-500 text-white text-xs font-bold tracking-wider uppercase transition shadow-lg shadow-blue-600/10 active:scale-[0.99]">
                     {plan.buttonText}
                   </button>
                 ) : (
-                  <button onClick={() => {plan.buttonText === "Talk to Us" ? router.push('/#contact') : ""}} className="w-full py-3.5 rounded-xl border border-zinc-300 bg-white hover:bg-zinc-50 hover:border-zinc-400 text-zinc-700 transition text-xs font-bold tracking-wider uppercase active:scale-[0.99]">
+                  <button onClick={(e) => {plan.buttonText === "Talk to Us" ? router.push('/#contact') : handleOpenVerifyModal(e)}} className="w-full py-3.5 rounded-xl border border-zinc-300 bg-white hover:bg-zinc-50 hover:border-zinc-400 text-zinc-700 transition text-xs font-bold tracking-wider uppercase active:scale-[0.99]">
                     {plan.buttonText}
                   </button>
                 )}
@@ -183,6 +193,10 @@ export default function PricingSection() {
         </motion.div>
 
       </div>
+
+      <AnimatePresence>
+        {isVerifyModalOpen && <VerifyEmail setIsVerifyModalOpen={setIsVerifyModalOpen} verifyStatus={verifyStatus} setVerifyStatus={setVerifyStatus} />}
+      </AnimatePresence>
     </section>
   );
 }
