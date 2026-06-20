@@ -5,12 +5,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import ConsultationModal from "@/components/modals/ConsultationModal";
 
 const WHATSAPP_URL =
-  "https://wa.me/919106052826?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20consultation";
+  "https://wa.me/919429248465?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20consultation";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isConsultationOpen, setIsConsultationOpen] = useState(false);
 
   return (
     <>
@@ -54,15 +56,12 @@ export default function Navbar() {
           >
             Contact
           </Link>
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-
+          <button
+            onClick={() => setIsConsultationOpen(true)}
             className="ml-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-5 py-2.5 rounded-xl transition-all duration-300 font-bold shadow-md shadow-blue-500/25 hover:shadow-lg hover:shadow-blue-500/40 hover:-translate-y-0.5"
           >
             Book Free Consultation →
-          </a>
+          </button>
         </div>
         <div className="md:hidden">
           <button
@@ -161,20 +160,24 @@ export default function Navbar() {
                 >
                   Contact
                 </Link>
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
                   onClick={() => {
                     setIsOpen(false);
+                    setIsConsultationOpen(true);
                   }}
-                  className="mt-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-5 py-3 rounded-xl text-center shadow-md"
+                  className="mt-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-5 py-3 rounded-xl text-center shadow-md cursor-pointer"
                 >
                   Book Free Consultation
-                </a>
+                </button>
               </div>
             </motion.div>
           </>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {isConsultationOpen && (
+          <ConsultationModal onClose={() => setIsConsultationOpen(false)} />
         )}
       </AnimatePresence>
     </>

@@ -1,8 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/Navbar";
+import ConsultationModal from "@/components/modals/ConsultationModal";
 import {
   containerVariants,
   leftPanelVariants,
@@ -19,7 +21,7 @@ import DeviceMockup from "@/components/home/DeviceMockup";
 
 
 const WHATSAPP_URL =
-  "https://wa.me/919106052826?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20consultation";
+  "https://wa.me/919429248465?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20consultation";
 
 const statPills = [
   { label: "Starting At", value: "$79", icon: "💰" },
@@ -29,6 +31,7 @@ const statPills = [
 ];
 
 export default function Home() {
+  const [isConsultationOpen, setIsConsultationOpen] = useState(false);
   return (
     <main>
       <section className="relative min-h-screen w-full overflow-hidden bg-background text-foreground font-sans select-none">
@@ -120,15 +123,12 @@ export default function Home() {
 
               {/* CTAs */}
               <div className="mt-10 flex flex-wrap gap-4">
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-
+                <button
+                  onClick={() => setIsConsultationOpen(true)}
                   className="rounded-xl cursor-pointer bg-gradient-to-r from-blue-600 to-indigo-600 border border-transparent px-8 py-4 text-xs text-white font-bold tracking-wider uppercase transition-all duration-300 hover:from-blue-500 hover:to-indigo-500 hover:scale-[1.02] active:scale-95 shadow-lg shadow-blue-500/25"
                 >
                   Book Free Consultation
-                </a>
+                </button>
                 <a
                   href="#contact"
 
@@ -167,6 +167,12 @@ export default function Home() {
       <ContactSection />
 
       <Footer />
+
+      <AnimatePresence>
+        {isConsultationOpen && (
+          <ConsultationModal onClose={() => setIsConsultationOpen(false)} />
+        )}
+      </AnimatePresence>
     </main>
   );
 }

@@ -1,9 +1,14 @@
 "use client";
 
+import { useState } from "react";
+import { AnimatePresence } from "framer-motion";
+import ConsultationModal from "@/components/modals/ConsultationModal";
+
 const WHATSAPP_URL =
-  "https://wa.me/919106052826?text=Hi%2C%20I%27d%20like%20to%20start%20a%20project";
+  "https://wa.me/919429248465?text=Hi%2C%20I%27d%20like%20to%20start%20a%20project";
 
 export default function Footer() {
+  const [isConsultationOpen, setIsConsultationOpen] = useState(false);
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -21,14 +26,12 @@ export default function Footer() {
               Get a free proposal within 24 hours — no commitment required.
             </p>
           </div>
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 bg-white text-blue-600 font-bold text-sm px-8 py-3.5 rounded-xl transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 hover:bg-blue-50 tracking-wide"
+          <button
+            onClick={() => setIsConsultationOpen(true)}
+            className="shrink-0 bg-white text-blue-600 font-bold text-sm px-8 py-3.5 rounded-xl transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 hover:bg-blue-50 tracking-wide cursor-pointer"
           >
             Book Free Consultation →
-          </a>
+          </button>
         </div>
       </div>
 
@@ -61,6 +64,12 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
+      <AnimatePresence>
+        {isConsultationOpen && (
+          <ConsultationModal onClose={() => setIsConsultationOpen(false)} />
+        )}
+      </AnimatePresence>
     </footer>
   );
 }
