@@ -80,7 +80,7 @@ const DEFAULT_POSTS = [
       <p>SaaS portals require dynamic metadata for marketing and sharing. Using Next.js <code>generateMetadata</code> function, we dynamically resolve headings, descriptions, and open-graph imagery based on the requested route and document schema, ensuring every page looks outstanding when shared across platforms like Slack, WhatsApp, and Twitter.</p>
     `,
     author: "Apex Horizon Team",
-    coverImage: "/emailnexus.png",
+    coverImage: "/blog3.png",
     tags: ["SaaS", "Next.js", "Mongoose", "Web Dev"],
     readTime: "6 min read",
     published: true,
