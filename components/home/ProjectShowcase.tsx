@@ -26,16 +26,6 @@ const projects = [
     tech: ["Next.js", "Tailwind", "Vercel"],
     status: "Delivered",
   },
-  {
-    title: "Email Nexus",
-    description:
-      "Intelligent email routing and automation platform with ML-powered categorization and CRM integration.",
-    image: "/emailnexus.png",
-    link: "#",
-    deliveredIn: "In progress",
-    tech: ["React", "Node.js", "PostgreSQL", "ML"],
-    status: "Building",
-  },
 ];
 
 const containerVariants = {
@@ -118,7 +108,7 @@ export default function ProjectShowcase() {
                 />
 
                 {/* Delivery Badge */}
-                <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm border border-zinc-200/50 text-[10px] font-mono font-bold tracking-wider text-zinc-700 shadow-sm uppercase">
+                {/* <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm border border-zinc-200/50 text-[10px] font-mono font-bold tracking-wider text-zinc-700 shadow-sm uppercase">
                   {project.status === "Building" ? (
                     <span className="flex items-center gap-1.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
@@ -130,7 +120,7 @@ export default function ProjectShowcase() {
                       {project.deliveredIn}
                     </span>
                   )}
-                </div>
+                </div> */}
               </div>
 
               {/* Content */}

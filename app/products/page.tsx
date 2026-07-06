@@ -18,16 +18,16 @@ const products = [
     gradient: 'from-blue-600 to-indigo-600',
     tags: ['Desktop Application', 'Offline First', 'Billing']
   },
-  {
-    id: 'email-nexus',
-    title: 'Email Nexus',
-    description: 'Next-generation intelligent email routing and customer support aggregation system designed specifically for high-volume enterprise queues.',
-    icon: '/emailnexus.png',
-    link: '#',
-    status: 'Coming Soon',
-    gradient: 'from-amber-500 to-orange-600',
-    tags: ['Enterprise', 'AI Routing', 'Support']
-  }
+  // {
+  //   id: 'email-nexus',
+  //   title: 'Email Nexus',
+  //   description: 'Next-generation intelligent email routing and customer support aggregation system designed specifically for high-volume enterprise queues.',
+  //   icon: '/emailnexus.png',
+  //   link: '#',
+  //   status: 'Coming Soon',
+  //   gradient: 'from-amber-500 to-orange-600',
+  //   tags: ['Enterprise', 'AI Routing', 'Support']
+  // }
 ];
 
 export default function ProductsPage() {

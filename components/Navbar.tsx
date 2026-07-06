@@ -39,6 +39,12 @@ export default function Navbar() {
             Products
           </Link>
           <Link
+            href="/blogs"
+            className="hover:text-blue-600 transition-colors"
+          >
+            Blogs
+          </Link>
+          <Link
             href="/#services"
             className="hover:text-blue-600 transition-colors"
           >
@@ -138,6 +144,13 @@ export default function Navbar() {
                   className="hover:text-blue-600 transition-colors"
                 >
                   Products
+                </Link>
+                <Link
+                  href="/blogs"
+                  onClick={() => setIsOpen(false)}
+                  className="hover:text-blue-600 transition-colors"
+                >
+                  Blogs
                 </Link>
                 <Link
                   href="/#services"
